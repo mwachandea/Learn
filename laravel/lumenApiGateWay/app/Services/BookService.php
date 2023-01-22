@@ -36,4 +36,52 @@ class BookService
     {
         return $this->performRequest('GET', '/books');
     }
+
+    /**
+     * [Create one book using book service]
+     *
+     * @return string
+     * 
+     */
+    public function createBook($data)
+    {
+        return $this->performRequest('POST', '/books', $data);
+    }
+
+    /**
+     * [Obtain one single book from the book service]
+     *
+     * @param mixed $book
+     * 
+     * @return string
+     * 
+     */
+    public function obtainBook($book)
+    {
+        return $this->performRequest('GET', "/books/{$book}");
+    }
+
+    /**
+     * [Update on instance of book using the book service]
+     *
+     * @return string
+     * 
+     */
+    public function editBook($data, $book)
+    {
+        return $this->performRequest('Put', "/books/{$book}", $data);
+    }
+
+    /**
+     * [Remove a single book using the book service]
+     *
+     * @param mixed $book
+     * 
+     * @return [type]
+     * 
+     */
+    public function deleteBook($book)
+    {
+        return $this->performRequest('DELETE', "/books/{$book}");
+    }
 }
